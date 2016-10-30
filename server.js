@@ -25,38 +25,38 @@ app.use(function(req, res, next){
         next();
 });
 
-var dailyjs = require('./routes/feed/dailyjs');
-var aListApart = require('./routes/feed/a-list-apart');
+// var dailyjs = require('./routes/feed/dailyjs');
+// var aListApart = require('./routes/feed/a-list-apart');
 
-// returns all channels list
-var channels = require('./routes/channels/allchannels');
+// // returns all channels list
+// var channels = require('./routes/channels/allchannels');
 
-// returns users data (all users and user by id)
-var users = require('./routes/users/allusers');
+// // returns users data (all users and user by id)
+// var users = require('./routes/users/allusers');
 
-// daily JS feed
-app.get('/dailyjs', dailyjs.findAll);
+// // daily JS feed
+// app.get('/dailyjs', dailyjs.findAll);
 
-// A List Apart feed
-app.get('/feeditems', aListApart.findAll);
+// // A List Apart feed
+// app.get('/feeditems', aListApart.findAll);
 
-// get all channels list
-app.get('/channels', channels.findAll);
+// // get all channels list
+// app.get('/channels', channels.findAll);
 
-/**
- * Users
- */
+// /**
+//  * Users
+//  */
 
-// get all users
-app.get('/users', users.findAll);
+// // get all users
+// app.get('/users', users.findAll);
 
-// get user by id
-app.get('/users/:id', users.findById);
+// // get user by id
+// app.get('/users/:id', users.findById);
 
-// delete user by id of course
-app.patch('/users/:id', users.patch);
+// // delete user by id of course
+// app.patch('/users/:id', users.patch);
 
-var router      =   express.Router();
+// var router      =   express.Router();
 
 app.set('port', (process.env.PORT || 5000));
 
