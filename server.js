@@ -61,7 +61,7 @@ var router      =   express.Router();
 app.listen(3003);
 console.log("Magic happens on PORT 3003");
 
-router.get("/",function(req,res){
+app.get("/",function(req,res){
     res.json({"error" : false,"message" : "Hello World"});
 });
 
