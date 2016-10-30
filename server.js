@@ -58,8 +58,11 @@ app.patch('/users/:id', users.patch);
 
 var router      =   express.Router();
 
-app.listen(3003);
-console.log("Magic happens on PORT 3003");
+app.set('port', (process.env.PORT || 5000));
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
 app.get("/",function(req,res){
     res.json({"error" : false,"message" : "Hello World"});
