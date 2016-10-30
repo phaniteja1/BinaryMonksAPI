@@ -1,12 +1,6 @@
 var express     =   require("express");
 var app         =   express();
 var bodyParser  =   require("body-parser");
-// var mongoOp     =   require("./models/mongo");
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost', function (err) {
-        if (err) throw err;
-});
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -31,8 +25,8 @@ app.use(function(req, res, next){
 // // returns all channels list
 // var channels = require('./routes/channels/allchannels');
 
-// // returns users data (all users and user by id)
-// var users = require('./routes/users/allusers');
+// returns users data (all users and user by id)
+var users = require('./routes/users/allusers');
 
 // // daily JS feed
 // app.get('/dailyjs', dailyjs.findAll);
@@ -43,22 +37,22 @@ app.use(function(req, res, next){
 // // get all channels list
 // app.get('/channels', channels.findAll);
 
-// /**
-//  * Users
-//  */
+/**
+ * Users
+ */
 
-// // get all users
-// app.get('/users', users.findAll);
+// get all users
+app.get('/users', users.findAll);
 
-// // get user by id
-// app.get('/users/:id', users.findById);
+// get user by id
+app.get('/users/:id', users.findById);
 
-// // delete user by id of course
-// app.patch('/users/:id', users.patch);
+// delete user by id of course
+app.patch('/users/:id', users.patch);
 
-// var router      =   express.Router();
+var router      =   express.Router();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3003));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

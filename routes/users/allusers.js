@@ -3,7 +3,10 @@ var ObjectId = require('mongodb').ObjectID;
 var BSON = require('bson').BSONPure;
 
 var MongoClient = require('mongodb').MongoClient;
-var URL = 'mongodb://localhost:27017/users';
+// var URL = 'mongodb://localhost:27017/users';
+var URL = process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 
+  'mongodb://localhost:27017/users';
 
 exports.findAll = function(req, res) {
         MongoClient.connect(URL, function(err, db) {
