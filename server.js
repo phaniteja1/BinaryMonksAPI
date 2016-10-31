@@ -20,10 +20,10 @@ app.use(function(req, res, next){
 });
 
 // var dailyjs = require('./routes/feed/dailyjs');
-// var aListApart = require('./routes/feed/a-list-apart');
+var feed = require('./routes/feed/allfeed');
 
-// // returns all channels list
-// var channels = require('./routes/channels/allchannels');
+// returns all channels list
+var channels = require('./routes/channels/allchannels');
 
 // returns users data (all users and user by id)
 var users = require('./routes/users/allusers');
@@ -31,11 +31,11 @@ var users = require('./routes/users/allusers');
 // // daily JS feed
 // app.get('/dailyjs', dailyjs.findAll);
 
-// // A List Apart feed
-// app.get('/feeditems', aListApart.findAll);
+// A List Apart feed
+app.get('/feeditems', feed.findAll);
 
-// // get all channels list
-// app.get('/channels', channels.findAll);
+// get all channels list
+app.get('/channels', channels.findAll);
 
 /**
  * Users

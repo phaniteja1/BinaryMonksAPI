@@ -3,7 +3,9 @@ var mongo = require('mongodb');
 var BSON = require('bson').BSONPure;
 
 var MongoClient = require('mongodb').MongoClient;
-var URL = 'mongodb://localhost:27017/channels';
+var URL = process.env.MONGODB_URI || 
+  process.env.MONGOLAB_URI || 
+  'mongodb://localhost:27017/allchannels';
 
 exports.findAll = function(req, res) {
         MongoClient.connect(URL, function(err, db) {
