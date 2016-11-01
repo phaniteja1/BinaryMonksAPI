@@ -10,7 +10,7 @@ var URL = process.env.MONGODB_URI ||
 exports.findAll = function(req, res) {
         MongoClient.connect(URL, function(err, db) {
                 if (err) return;
-                db.collection('allfeed', function(err, collection) {
+                db.collection('autofeed', function(err, collection) {
                         collection.find().toArray(function(err, items) {
                                 res.send(items);
                                 db.close();
